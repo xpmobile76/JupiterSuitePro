@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jupiter Suite Pro — Web Scraper, Media Downloader & Social Suite</title>
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card-bg: #151821;
+      --card-border: #1f2430;
+      --cyan: #00e5ff;
+      --blue: #4f80ff;
+      --red: #ff3366;
+      --green: #00e676;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 24px;
+      background: linear-gradient(180deg, #151821 0%, #0b0c10 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #00e5ff, #7c9cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    @media (min-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .card h2 {
+      font-size: 1.3rem;
+      color: var(--cyan);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    video, img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+      border: 1px solid #222938;
+      background: #000;
+    }
+    .features-list {
+      list-style: none;
+    }
+    .features-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+    .features-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+      font-weight: bold;
+    }
+    .platform-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 6px;
+      background: #1c2230;
+      color: #7c9cff;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      border: 1px solid #2b354c;
+    }
+    .platform-tag.new {
+      background: rgba(255, 69, 0, 0.15);
+      color: #ff5722;
+      border-color: rgba(255, 69, 0, 0.4);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    th {
+      color: var(--cyan);
+      background: rgba(0,0,0,0.2);
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #00e5ff, #0072ff);
+      color: #0b0c10;
+      font-weight: 700;
+    }
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: #1f2433;
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+      margin-left: 8px;
+    }
+    .btn-secondary:hover {
+      background: #2b3347;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">JUPITER INNOVATION GROUP · V5.93</div>
+      <h1>Jupiter Suite Pro</h1>
+      <p class="subtitle">Next-Generation Social Web Scraper, Progressive Media Downloader & Real-Browser Bridge for NLP Data Pipelines</p>
+    </header>
+
+    <div class="grid grid-2">
+      <!-- Media Demo Card -->
+      <div class="card">
+        <h2>🎥 Capture & Media Demo</h2>
+        <video controls playsinline preload="metadata">
+          <source src="recording_20261030_105349.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Real-time Review Extraction & Media Download</span>
+          <a class="btn btn-secondary" href="recording_20261030_105349.mp4" download>Download MP4</a>
+        </div>
+      </div>
+
+      <!-- Application Screenshot Card -->
+      <div class="card">
+        <h2>🖥️ Desktop UI & Chrome Extension</h2>
+        <img src="screenshot_demo.jpg" alt="Jupiter Suite Pro Screenshot" />
+        <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Scraper Tab, Extension Host & Job Queue</span>
+          <a class="btn btn-secondary" href="JupiterSuitePro_Features_and_Description.pdf" download>Download PDF Docs</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Supported Platforms Grid -->
+    <div class="card" style="margin-bottom: 24px;">
+      <h2>🌐 Supported Social & Web Platforms</h2>
+      <div>
+        <span class="platform-tag new">★ Reddit (New: Comments, Nested Replies & Media)</span>
+        <span class="platform-tag">Instagram (Reels, Posts & Comments)</span>
+        <span class="platform-tag">YouTube (Videos, Shorts & Language Meta)</span>
+        <span class="platform-tag">TikTok (Comments & CDN Media)</span>
+        <span class="platform-tag">Facebook (Comments & Video Fallbacks)</span>
+        <span class="platform-tag">X / Twitter (Threads & Media)</span>
+        <span class="platform-tag">LinkedIn (Post Comments)</span>
+        <span class="platform-tag">Douyin & Bilibili</span>
+      </div>
+    </div>
+
+    <!-- Technical Architecture & Reddit Pipeline -->
+    <div class="grid grid-2">
+      <div class="card">
+        <h2>⚡ Core Architecture</h2>
+        <ul class="features-list">
+          <li><strong>Real Browser Extension Bridge:</strong> Live Chrome profile leverages active cookies and TLS fingerprint to smoothly pass anti-bot / Cloudflare layers.</li>
+          <li><strong>Native Messaging Host:</strong> High-performance <code>JupiterMediaHost.exe</code> communicates with desktop worker threads.</li>
+          <li><strong>Progressive Media Fallbacks:</strong> Multi-engine downloads using yt-dlp, progressive social CDN streams, and extension sniffers.</li>
+          <li><strong>Companion NLP Suite:</strong> Unified mesh licensing with Data Preparation, SEA-Lion regional NLP, and transformer modeling apps.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🔥 Reddit Integration Workflow</h2>
+        <ul class="features-list">
+          <li><strong>Thread Expansion:</strong> Automated recursive cycles for "View More Comments" and nested comment trees.</li>
+          <li><strong>Multi-Format Media:</strong> Extracts Reddit native video packages (v.redd.it audio/video muxing) and high-res image galleries (i.redd.it).</li>
+          <li><strong>Structured Exports:</strong> Exports post metadata, upvote ratios, top-level submissions, and author profiles into ready-to-train CSV/JSON datasets.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Summary Feature Table -->
+    <div class="card">
+      <h2>📊 Feature Breakdown Matrix</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Capabilities & Implementation</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Reddit Capture</strong></td>
+            <td>Subreddit threads, multi-level comment expanders, Reddit video muxing</td>
+            <td style="color: var(--green);">Integrated</td>
+          </tr>
+          <tr>
+            <td><strong>Instagram / Reels</strong></td>
+            <td>/p/ and /reels/ comment modals, CDN direct download, progressive fallback</td>
+            <td style="color: var(--green);">Active</td>
+          </tr>
+          <tr>
+            <td><strong>YouTube Engine</strong></td>
+            <td>Watch & Shorts, reply expansion, live player audio language track meta</td>
+            <td style="color: var(--green);">Active</td>
+          </tr>
+          <tr>
+            <td><strong>Bypass Layer</strong></td>
+            <td>Live session cookies, soft-refresh flows, human DOM inspection</td>
+            <td style="color: var(--green);">Active</td>
+          </tr>
+          <tr>
+            <td><strong>NLP Data Prep</strong></td>
+            <td>Direct export to CSV, JSON, spaCy components, and Jupyter Notebook pipelines</td>
+            <td style="color: var(--green);">Active</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <p>© 2026 Jupiter Suite Pro · Jupiter Innovation Group · Open GitHub Distribution</p>
+    </footer>
+  </div>
+</body>
+</html>
